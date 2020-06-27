@@ -202,7 +202,7 @@ pl_PL:
     email: Email
     submit: Prześlij
   go_back: Wróć
-  greenlight: Greenlight
+  greenlight: Techflic
   header:
     all_recordings: Wszystkie nagrania
     dropdown:

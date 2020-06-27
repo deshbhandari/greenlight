@@ -24,7 +24,7 @@ describe AccountActivationsController, type: :controller do
 
   describe "GET #show" do
     it "redirects to main room if signed in" do
-      user = create(:user, provider: "greenlight")
+      user = create(:user, provider: "Techflic")
       @request.session[:user_id] = user.id
 
       get :show, params: { uid: user.uid }
@@ -33,7 +33,7 @@ describe AccountActivationsController, type: :controller do
     end
 
     it "renders the verify view if the user is not signed in and is not verified" do
-      user = create(:user, email_verified: false,  provider: "greenlight")
+      user = create(:user, email_verified: false,  provider: "Techflic")
 
       get :show, params: { token: user.create_activation_token }
 
@@ -43,7 +43,7 @@ describe AccountActivationsController, type: :controller do
 
   describe "GET #edit" do
     it "activates a user if they have the correct activation token" do
-      @user = create(:user, email_verified: false, provider: "greenlight")
+      @user = create(:user, email_verified: false, provider: "Techflic")
 
       get :edit, params: { token: @user.create_activation_token }
       @user.reload
@@ -54,13 +54,13 @@ describe AccountActivationsController, type: :controller do
     end
 
     it "should not find user when given fake activation token" do
-      @user = create(:user, email_verified: false, provider: "greenlight")
+      @user = create(:user, email_verified: false, provider: "Techflic")
 
       expect { get :edit, params: { token: "fake_token" } }.to raise_error(ActiveRecord::RecordNotFound)
     end
 
     it "does not allow the user to click the verify link again" do
-      @user = create(:user, provider: "greenlight")
+      @user = create(:user, provider: "Techflic")
 
       get :edit, params: { token: @user.create_activation_token }
       expect(flash[:alert]).to be_present
@@ -68,7 +68,7 @@ describe AccountActivationsController, type: :controller do
     end
 
     it "redirects a pending user to root with a flash" do
-      @user = create(:user, email_verified: false, provider: "greenlight")
+      @user = create(:user, email_verified: false, provider: "Techflic")
 
       @user.set_role :pending
       @user.reload
@@ -82,7 +82,7 @@ describe AccountActivationsController, type: :controller do
 
   describe "GET #resend" do
     it "resends the email to the current user if the resend button is clicked" do
-      user = create(:user, email_verified: false, provider: "greenlight")
+      user = create(:user, email_verified: false, provider: "Techflic")
 
       expect { get :resend, params: { token: user.create_activation_token } }
         .to change { ActionMailer::Base.deliveries.count }.by(1)
@@ -91,7 +91,7 @@ describe AccountActivationsController, type: :controller do
     end
 
     it "redirects a verified user to the root path" do
-      user = create(:user, provider: "greenlight")
+      user = create(:user, provider: "Techflic")
 
       get :resend, params: { token: user.create_activation_token }
 

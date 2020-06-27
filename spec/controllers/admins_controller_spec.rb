@@ -757,7 +757,7 @@ describe AdminsController, type: :controller do
       end
 
       it "should fail to delete the role if it has users assigned to it" do
-        admin_role = Role.find_by(name: "admin", provider: "greenlight")
+        admin_role = Role.find_by(name: "admin", provider: "Techflic")
 
         @request.session[:user_id] = @admin.id
 
@@ -792,7 +792,7 @@ describe AdminsController, type: :controller do
 
     context "POST permissions" do
       it "allows a user with the correct permission to edit roles" do
-        Role.create_new_role("test", "greenlight").update_all_role_permissions(can_edit_roles: true)
+        Role.create_new_role("test", "Techflic").update_all_role_permissions(can_edit_roles: true)
 
         @user2 = create(:user)
         @user2.set_role(:test)
@@ -813,7 +813,7 @@ describe AdminsController, type: :controller do
       end
 
       it "doesn't allow a user with the incorrect permission to edit roles" do
-        Role.create_new_role("test", "greenlight").update_all_role_permissions(can_manage_users: false)
+        Role.create_new_role("test", "Techflic").update_all_role_permissions(can_manage_users: false)
 
         @user2 = create(:user)
         @user2.set_role(:test)

@@ -154,9 +154,9 @@ class ApplicationController < ActionController::Base
     # Proceed with retrieving the provider info
     begin
       provider_info = retrieve_provider_info(@user_domain, 'api2', 'getUserGreenlightCredentials')
-      provider_info['provider'] == 'greenlight'
+      provider_info['provider'] == 'Techflic'
     rescue => e
-      logger.error "Error in checking if greenlight accounts are allowed: #{e}"
+      logger.error "Error in checking if Techflic accounts are allowed: #{e}"
       false
     end
   end
