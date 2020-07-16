@@ -134,7 +134,7 @@ module Greenlight
     config.branding_image_default = "https://helloworld-contentdelivery-mobilehub-1974945327.s3.amazonaws.com/logo_with_text.png"
 
     # Default primary color if the user does not specify one
-    config.primary_color_default = "#CF7946"
+    config.primary_color_default = "#316cbe"
 
     # Default primary color lighten if the user does not specify one
     config.primary_color_lighten_default = "#e8eff9"

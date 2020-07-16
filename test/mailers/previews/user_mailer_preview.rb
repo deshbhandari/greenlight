@@ -3,7 +3,7 @@
 class UserMailerPreview < ActionMailer::Preview
   def initialize(_params)
     @logo = "https://helloworld-contentdelivery-mobilehub-1974945327.s3.amazonaws.com/logo_with_text.png"
-    @color = "#CF7946"
+    @color = "#316cbe"
   end
 
   # Preview this email at
@@ -56,7 +56,7 @@ class UserMailerPreview < ActionMailer::Preview
     role = Role.first
     url = "http://example.com"
     logo_image = "https://helloworld-contentdelivery-mobilehub-1974945327.s3.amazonaws.com/logo_with_text.png"
-    user_color = "#CF7946"
+    user_color = "#316cbe"
     UserMailer.user_promoted(user, role, url, logo_image, user_color)
   end
 
@@ -67,7 +67,7 @@ class UserMailerPreview < ActionMailer::Preview
     role = Role.first
     url = "http://example.com"
     logo_image = "https://helloworld-contentdelivery-mobilehub-1974945327.s3.amazonaws.com/logo_with_text.png"
-    user_color = "#CF7946"
+    user_color = "#316cbe"
     UserMailer.user_demoted(user, role, url, logo_image, user_color)
   end
 end
